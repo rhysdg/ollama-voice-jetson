@@ -54,7 +54,7 @@ class Assistant:
 
         self.audio = pyaudio.PyAudio()
 
-        self.tts = pyttsx3.init("nsss");
+        self.tts = pyttsx3.init();
         self.tts.setProperty('rate', self.tts.getProperty('rate') - 20)
 
         try:
