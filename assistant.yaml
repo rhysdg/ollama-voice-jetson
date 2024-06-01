@@ -9,7 +9,7 @@ whisperRecognition:
 
 ollama:
   url: "http://localhost:11434/api/generate"
-  model: "mistral"
+  model: "mini-b"
 
 conversation:
-  greeting: "Hi, how can I help you?"
+  greeting: "Hi, it's mini bee! How can I help?"

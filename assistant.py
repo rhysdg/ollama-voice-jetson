@@ -57,6 +57,10 @@ class Assistant:
         self.tts = pyttsx3.init();
         self.tts.setProperty('rate', self.tts.getProperty('rate') - 20)
 
+        #1 female
+        self.setProperty('voice', voices[1].id)   #changing index, changes voices. 1 for female
+
+
         try:
             self.audio.open(format=INPUT_FORMAT,
                             channels=INPUT_CHANNELS,
