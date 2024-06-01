@@ -42,9 +42,9 @@
 * [Ollama](https://ollama.com/)
 * [Piper TTS](https://github.com/rhasspy/piper)
 * [Open AI Whisper](https://openai.com/index/whisper/)
-* [Pytorch](https://openai.com/index/whisper/)
-* [Onnxruntime]()
-* [Jetpack](https://openai.com/index/whisper/)
+* [Pytorch](https://pytorch.org/)
+* [Onnxruntime](https://onnxruntime.ai/)
+* [Jetpack](https://developer.nvidia.com/embedded/jetpack)
 
 
 ### Hardware
@@ -67,9 +67,9 @@ A number of changes have been made or are in progress that diverge from these or
 
 - I'm using [gemma 2b](https://ollama.com/library/gemma) rather than llama here with great results on the board. Both latency and mobile battery power
 
-Finally you'll notice that support is slowly coming to a halt for Xavier devices with Orin in the picture. This project is both an attenpt to keep the series alive as they're still incredibly powerful - quantised ollama models run with impressive low latency - but also an alternative approach to a dockerised environment for those who are both new to docker and docker as a tool to solve Jetson compatibility issues.
+- Finally you'll notice that support is slowly coming to a halt for Xavier devices with Orin in the picture. This project is both an attenpt to keep the series alive as they're still incredibly powerful - quantised ollama models run with impressive low latency - but also an alternative approach to a dockerised environment for those who are both new to docker and docker as a tool to solve Jetson compatibility issues.
 
-Given this the project assumes that you've made it as far as Jetpack 5.1.4 - although Jetpack 6 support would be great once I can get my hands on an Orin device!
+Given the last point the project assumes that you've made it as far as Jetpack 5.1.4 - although Jetpack 6 support would be great once I can get my hands on an Orin device!
 
 <!-- GETTING STARTED -->
 ## Getting Started:
