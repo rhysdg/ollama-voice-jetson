@@ -131,7 +131,7 @@ I went down a pretty lengthy rabbit hole for this one and for those of you who d
 
 <!-- Contact -->
 ## Contact
-- Project link: (https://github.com/rhysdg/ollama-voice-jetson)
+- Project link: https://github.com/rhysdg/ollama-voice-jetson
 - Email: [Rhys](rhysdgwilliams@gmail.com)
 
 
