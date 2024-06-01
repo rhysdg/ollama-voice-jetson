@@ -14,6 +14,11 @@ import whisper
 import logging
 import threading
 import queue
+import sounddevice as sd
+import numpy as np
+from piper.voice import PiperVoice
+
+
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -53,12 +58,11 @@ class Assistant:
 
         self.audio = pyaudio.PyAudio()
 
-        self.tts = pyttsx3.init();
-        self.tts.setProperty('rate', self.tts.getProperty('rate') - 20)
-
-        #1 female
-        self.setProperty('voice', voices[1].id)   #changing index, changes voices. 1 for female
-
+        ######piper setup
+        voicedir = "./voices/" #Where onnx model files are stored on my machine
+        model = voicedir+"en_GB-alba-medium.onnx"
+        self.voice = PiperVoice.load(model)
+        self.tts_stream = sd.OutputStream(samplerate=self.voice.config.sample_rate, channels=1, dtype='int16')
 
         try:
             self.audio.open(format=INPUT_FORMAT,
@@ -75,7 +79,6 @@ class Assistant:
         self.context = []
 
         self.text_to_speech(self.config.conversation.greeting)
-        time.sleep(0.5)
         self.display_message(self.config.messages.pressSpace)
 
     def wait_exit(self):
@@ -267,18 +270,16 @@ class Assistant:
         def play_speech():
             try:
                 logging.info("Initializing TTS engine")
-                engine = pyttsx3.init()
-                
-                # Adjust the speech rate (optional)
-                rate = engine.getProperty('rate')
-                engine.setProperty('rate', rate - 50)  # Decrease the rate by 50 units
+                self.tts_stream.start()
                 
                 # Add a short delay before converting text to speech
-                time.sleep(0.5)  # Adjust the delay as needed
-                
-                logging.info("Converting text to speech")
-                engine.say(text)
-                engine.runAndWait()
+                for audio_bytes in self.voice.synthesize_stream_raw(text):
+                    int_data = np.frombuffer(audio_bytes, dtype=np.int16)
+                    self.tts_stream.write(int_data)
+
+                self.tts_stream.stop()
+                self.tts_stream.close()
+
                 logging.info("Speech playback completed")
             except Exception as e:
                 logging.error(f"An error occurred during speech playback: {str(e)}")
@@ -312,9 +313,4 @@ def main():
                     ass.display_message(ass.config.messages.pressSpace)
 
                 elif event.key == quit_key:
-                    logging.info("Quit key pressed")
-                    ass.shutdown()
-
-
-if __name__ == "__main__":
-    main()
+                    logging.info("Quit key pressed")Initia
