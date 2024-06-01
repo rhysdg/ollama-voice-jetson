@@ -49,8 +49,10 @@
 
 ### Hardware
 
-* [Ollama](https://ollama.com/)
-* [Pandas](https://pandas.pydata.org/)
+* [Jetson Xavier NX Development Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-xavier-nx-devkit)
+* [Seed studio Respeaker Microphone Array](https://wiki.seeedstudio.com/ReSpeaker_Mic_Array_v2.0/)
+* Generic USB stereo speaker
+
 
 ### The Story So Far
 
@@ -108,7 +110,8 @@ Given the last point the project assumes that you've made it as far as Jetpack 5
 
 ### Testing
 
- - Jetpack 5.1.4 - Xavier NX Debelopment Kit - passing
+ - Jetpack 5.1.4 - Xavier NX Development Kit - passing
+ - Likely appicable to an AGX Xavier too - I have one available - testing results shortly
 
 
 ### Supplementary Data
@@ -122,7 +125,7 @@ Given the last point the project assumes that you've made it as far as Jetpack 5
 
 ### Similar projects
 
-I went down a pretty lengthy rabbit hole for this one and for those of you who don' wish to stick exclusively to Python there's a numbe of great projects out there:
+I went down a pretty lengthy rabbit hole for this one and for those of you who don't wish to stick exclusively to Python there's a numbe of great projects out there - these have not been tested with Jetson boards however:
 
 - [lamma.cpp](https://github.com/ggerganov/llama.cpp)
 - [Talk](https://github.com/yacineMTB/talk)
@@ -140,13 +143,7 @@ I went down a pretty lengthy rabbit hole for this one and for those of you who d
 <!-- LICENSE -->
 ## License
 **Likely not relevant behind closed doors**
-
-Distributed under the Apache License. See `LICENSE` for more information.
-
-<!-- CONTACT -->
-## Contact
-
-- Project Link: [https://github.com/rhysdg/ollama-voice-jetson](https://github.com/rhysdg/ollama-voice-jetson)
+1. Coming soonvoice-jetson](https://github.com/rhysdg/ollama-voice-jetson)
 - Email: [Rhys](rhysdgwilliams@gmail.com)
 
 
