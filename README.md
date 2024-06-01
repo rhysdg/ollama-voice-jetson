@@ -103,7 +103,7 @@ Given the last point the project assumes that you've made it as far as Jetpack 5
 1. Coming soon
 
 
-### Tools and Scripts 
+### Tools and Script[Seed studio Respeaker Microphone Array](https://wiki.seeedstudio.com/ReSpeaker_Mic_Array_v2.0/)s 
 
 1. **coming soon**
 
@@ -114,8 +114,7 @@ Given the last point the project assumes that you've made it as far as Jetpack 5
  - Likely appicable to an AGX Xavier too - I have one available - testing results shortly
 
 
-### Supplementary Data
-
+### Supplementary Data[Seed studio Respeaker Microphone Array](https://wiki.seeedstudio.com/ReSpeaker_Mic_Array_v2.0/)
 ***coming soon**
 
 
@@ -140,6 +139,7 @@ I went down a pretty lengthy rabbit hole for this one and for those of you who d
 - command execution
 - automatic image live camera retrieval and analysis
 - optimised RAG
+- pip package support
 <!-- LICENSE -->
 ## License
 **Likely not relevant behind closed doors**
