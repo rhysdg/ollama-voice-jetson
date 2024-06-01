@@ -8,7 +8,7 @@ sudo apt-get install python3-pip
 sudo apt-get install libopenblas-base libopenmpi-dev libomp-dev portaudio19-dev espeak ffmpeg libespeak1 python3-pyaudio
 
 ###grabbing all relevant wheels
-wget https://developer.download.nvidia.com/compute/redist/jp/v512/pytorch/torch-2.1.0a0+41361538.nv23.06-cp39-cp39-linux_aarch64.whl
+wget https://download.pytorch.org/whl/cpu/torch-2.1.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl#sha256=de7d63c6ecece118684415a3dbd4805af4a4c1ee1490cccf7405d8c240a481b4
 wget https://nvidia.box.com/shared/static/6orewbbm76n871pmchr7u3nfeecl5r20.whl -O onnxruntime_gpu-1.17.0-cp39-cp39-linux_aarch64.whl
 
 #Grabbing Open AI Whisper base model 

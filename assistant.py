@@ -2,7 +2,6 @@ import sys
 import json
 import wave
 import time
-import pyttsx3
 import torch
 import requests
 import soundfile
