@@ -8,6 +8,6 @@ pygame==2.5.2
 sounddevice
 openai-whisper @ git+https://github.com/openai/whisper.git@ba3f3cd54b0e5b8ce1ab3de13e32122d0d5f98ab
 # Pining at 2.1 - no more Jetpack updates are planned for the Xavier series
-torch-2.1.0a0+41361538.nv23.06-cp39-cp39-linux_aarch64.whl
+torch-2.1.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
 onnxruntime_gpu-1.18.0-cp39-cp39-linux_aarch64.whl
 
