@@ -19,6 +19,7 @@ import queue
 import sounddevice as sd
 import numpy as np
 from piper.voice import PiperVoice
+from sshkeyboard import listen_keyboard, stop_listening
 
 
 
@@ -80,9 +81,26 @@ class Assistant:
         self.display_message(self.config.messages.loadingModel)
         self.model = whisper.load_model(self.config.whisperRecognition.modelPath)
         self.context = []
+        self.frames = []
+        self.released=False
 
         self.text_to_speech(self.config.conversation.greeting)
         self.display_message(self.config.messages.pressSpace)
+    
+    def get_pressed(self, key):
+        self.key = key
+        if self.key == 'space':
+            print('eeeey')
+            data = self.audio_stream.read(INPUT_CHUNK)
+            self.frames.append(data)
+        
+    
+    def get_release(self, key):
+        if self.key == 'space':
+            self.relased = True
+
+
+            stop_listening()
 
     def wait_exit(self):
         while True:
@@ -99,7 +117,7 @@ class Assistant:
         sys.exit()
 
     def init_config(self):
-        logging.info("Initializing configuration")
+        #logging.info("Initializing configuration")
         class Inst:
             pass
 
@@ -125,11 +143,6 @@ class Assistant:
 
         return config
 
-    def display_rec_start(self):
-        logging.info("Displaying recording start")
-        self.windowSurface.fill(BACK_COLOR)
-        pygame.draw.circle(self.windowSurface, REC_COLOR, (WIDTH/2, HEIGHT/2), REC_SIZE)
-        pygame.display.flip()
 
     def display_sound_energy(self, energy):
         logging.info(f"Displaying sound energy: {energy}")
@@ -153,10 +166,7 @@ class Assistant:
                 pygame.draw.rect(self.windowSurface, RED_CENTER,
                                 rect_coords(x, y+offset))
                 #mirror:
-                pygame.draw.rect(self.windowSurface, RED_CENTER,
-                                rect_coords(x, y-offset))
-        pygame.display.flip()
-
+                pygame.draw.s
     def display_message(self, text):
         logging.info(f"Displaying message: {text}")
         self.windowSurface.fill(BACK_COLOR)
@@ -173,29 +183,23 @@ class Assistant:
         pygame.display.flip()
 
     def waveform_from_mic(self, key = pygame.K_SPACE) -> np.ndarray:
-        logging.info("Capturing waveform from microphone")
-        self.display_rec_start()
-
-        stream = self.audio.open(format=INPUT_FORMAT,
+        logging.info("Capturings wave")
+        self.frames = []
+        self.audio_stream = self.audio.open(format=INPUT_FORMAT,
                                  channels=INPUT_CHANNELS,
                                  rate=INPUT_RATE,
                                  input=True,
                                  frames_per_buffer=INPUT_CHUNK)
-        frames = []
+        
+       
+        listen_keyboard(on_press=self.get_pressed, on_release=self.get_release)
+            
+        self.audio_stream.stop_stream()
+        self.audio_stream.close()
 
-        while True:
-            pygame.event.pump() # process event queue
-            pressed = pygame.key.get_pressed()
-            if pressed[key]:
-                data = stream.read(INPUT_CHUNK)
-                frames.append(data)
-            else:
-                break
-
-        stream.stop_stream()
-        stream.close()
-
-        return np.frombuffer(b''.join(frames), np.int16).astype(np.float32) * (1 / 32768.0)
+        print('ooooooh')
+        
+        return np.frombuffer(b''.join(self.frames), np.int16).astype(np.float32) * (1 / 32768.0)
 
     def speech_to_text(self, waveform):
         logging.info("Converting speech to text")
@@ -301,22 +305,21 @@ def main():
 
     while True:
         ass.clock.tick(60)
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == push_to_talk_key:
-                    logging.info("Push-to-talk key pressed")
-                    speech = ass.waveform_from_mic(push_to_talk_key)
+        listen_keyboard(on_press=ass.get_pressed)
+        if ass.key == 'space':
+            logging.info("Push-to-talk key pressed")
+            speech = ass.waveform_from_mic(push_to_talk_key)
 
-                    transcription = ass.speech_to_text(waveform=speech)
+            transcription = ass.speech_to_text(waveform=speech)
 
-                    ass.ask_ollama(transcription, ass.text_to_speech)
+            ass.ask_ollama(transcription, ass.text_to_speech)
 
-                    time.sleep(1)
-                    ass.display_message(ass.config.messages.pressSpace)
+            time.sleep(1)
+            ass.display_message(ass.config.messages.pressSpace)
 
-                elif event.key == quit_key:
-                    logging.info("Quit key pressed")
-                    ass.shutdown()
+        elif ass.key == 'q':
+            logging.info("Quit key pressed")
+            ass.shutdown()
 
 
 if __name__ == "__main__":

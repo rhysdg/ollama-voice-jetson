@@ -5,7 +5,8 @@ PyAudio==0.2.14
 piper-tts==1.2.0
 PyYAML==6.0.1
 pygame==2.5.2
-sounddevice
+sounddevice==0.4.7
+sshkeyboard==2.3.1
 pygame==2.5.2
 openai-whisper @ git+https://github.com/openai/whisper.git 
 # Pining at 2.1 - no more Jetpack updates are planned for the Xavier series
