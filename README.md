@@ -8,7 +8,7 @@
   <h3 align="center"> Ollama Voice: Jetson Xavier Edition</h2>
   <p align="center">
      Jetson (Xavier series) compatible LLM based assistant and robot control package<br />
-    <a href="https://www.notion.so/pronti/Machine-Learning-15f258a3d7a34f45bfe7573fef6895c9"<strong>Explore the docs »</strong></a>
+    <a href="https://github.com/rhysdg/ollama-voice-jetson/wiki"<strong>Explore the docs »</strong></a>
     <br />
     <br />
     <img src="ollama-jetson.png" align="middle" width=200>
