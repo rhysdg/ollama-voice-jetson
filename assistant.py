@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 import wave
@@ -5,6 +6,7 @@ import time
 import torch
 import requests
 import soundfile
+import alsaaudio
 import yaml
 import pygame
 import pygame.locals
@@ -58,7 +60,8 @@ class Assistant:
 
         self.audio = pyaudio.PyAudio()
 
-        ######piper setup
+        ######piper setup - changing to a private setup method shortly
+        
         voicedir = "./voices/" #Where onnx model files are stored on my machine
         model = voicedir+"en_GB-alba-medium.onnx"
         self.voice = PiperVoice.load(model)
@@ -269,8 +272,8 @@ class Assistant:
 
         def play_speech():
             try:
-                logging.info("Initializing TTS engine")
                 self.tts_stream.start()
+                # Adjust the speech rate (optional)
                 
                 # Add a short delay before converting text to speech
                 for audio_bytes in self.voice.synthesize_stream_raw(text):
@@ -280,7 +283,6 @@ class Assistant:
                 self.tts_stream.stop()
                 self.tts_stream.close()
 
-                logging.info("Speech playback completed")
             except Exception as e:
                 logging.error(f"An error occurred during speech playback: {str(e)}")
 
@@ -313,4 +315,9 @@ def main():
                     ass.display_message(ass.config.messages.pressSpace)
 
                 elif event.key == quit_key:
-                    logging.info("Quit key pressed")Initia
+                    logging.info("Quit key pressed")
+                    ass.shutdown()
+
+
+if __name__ == "__main__":
+    main()
