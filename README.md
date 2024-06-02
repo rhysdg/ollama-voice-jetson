@@ -11,7 +11,7 @@
     <a href="https://www.notion.so/pronti/Machine-Learning-15f258a3d7a34f45bfe7573fef6895c9"<strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <img src="application/data/pronti.png" align="middle" width=200>
+    <img src="ollama-jetson.png" align="middle" width=200>
     <br />
     <br />
     <a href="https://github.com//issues">Report Bug</a>
