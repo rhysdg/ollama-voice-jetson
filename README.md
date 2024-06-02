@@ -64,7 +64,7 @@ This project came into fruition through an excited bit of research into the incr
 
 A number of changes have been made or are in progress that diverge from these original projects:
 
-- [pyttsx3](https://github.com/nateshmbhat/pyttsx3) has been swapped out for Piper TTS - while nsss and Sapi5 have great voice support for mac and Windows respectively, espeak leaves much to be desired for Linux.  Piper tts is not only fast but has outsanding pronounciation and quality in general
+- [pyttsx3](https://github.com/nateshmbhat/pyttsx3) has been swapped out for Piper TTS - while nsss and Sapi5 have great voice support for mac and Windows respectively, espeak leaves much to be desired for Linux.  Piper tts is not only fast but has outsanding pronounciation and quality in general - you'll find all dependencies and a sample voice is installed by this project
 
 - I'm using [gemma 2b](https://ollama.com/library/gemma) rather than llama here with great results on the board. Both latency and mobile battery power
 
