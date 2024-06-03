@@ -82,7 +82,7 @@ Given the last point the project assumes that you've made it as far as Jetpack 5
 
 - All installation scripts are self contained and debugged for this specific setup but note that you'll need to ensure you're in a **Python 3.9** virtual environment rather than the stock Python 3.8 - this is due to dependency conflicts at Piper-TTS. All dependencies at **install.sh** include any relevant 3.9 wheels as a result
 
-- Download the pre-built torch 2.1.0 wheel for Python 3.9 at the following Google Drive [link]() and add to your project root
+- Download the pre-built torch 2.1.0 wheel for Python 3.9 at the following Google Drive [link](https://drive.google.com/file/d/1ufgHQtNfkCFTk_GHhkMe_ji1afGJLMbs/view?usp=sharing) and add to your project root
 
 - Then simply run 
   ```bash
@@ -102,7 +102,7 @@ Given the last point the project assumes that you've made it as far as Jetpack 5
 
 1. Coming soon
 
-PROPOSED UPDATES
+### Tools and Scripts
 1. **coming soon**
 
 
@@ -112,9 +112,10 @@ PROPOSED UPDATES
 
 
 ### Supplementary Data
+
 **coming soon**
 
-###Latency benchmarks 
+### Latency benchmarks 
 
 **coming soon**
 

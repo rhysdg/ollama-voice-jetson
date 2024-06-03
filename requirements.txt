@@ -10,6 +10,6 @@ sshkeyboard==2.3.1
 pygame==2.5.2
 openai-whisper @ git+https://github.com/openai/whisper.git 
 # Pining at 2.1 - no more Jetpack updates are planned for the Xavier series
-torch-2.1.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+torch-2.1.0-cp39-cp39-linux_aarch64.whl
 onnxruntime_gpu-1.18.0-cp39-cp39-linux_aarch64.whl
 
