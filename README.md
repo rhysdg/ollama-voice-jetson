@@ -126,6 +126,12 @@ I went down a pretty lengthy rabbit hole for this one and for those of you who d
 - [lamma.cpp](https://github.com/ggerganov/llama.cpp)
 - [Talk](https://github.com/yacineMTB/talk)
 
+
+<!-- PROPOSED UPDATES -->
+## Latest Updates
+- June 3rd 2023 - Swapping out pygame for a terminal based space bar execution with **sshkeyboard**
+- Incoming - Whisper tensorrt for better performance
+
 <!-- PROPOSED UPDATES -->
 ## Future updates
 - Wake word based activation
