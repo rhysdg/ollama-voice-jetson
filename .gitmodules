@@ -1,0 +1,6 @@
+[submodule "whisper-onnx-tensorrt"]
+	path = whisper-onnx-tensorrt
+	url = https://github.com/rhysdg/whisper-onnx-tensorrt.git
+[submodule "whisper"]
+	path = whisper
+	url = https://github.com/rhysdg/whisper-onnx-tensorrt.git
